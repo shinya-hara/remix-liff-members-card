@@ -4,15 +4,18 @@
  * For more information, see https://remix.run/file-conventions/entry.client
  */
 
+import { liff } from "@line/liff";
 import { RemixBrowser } from "@remix-run/react";
 import { StrictMode, startTransition } from "react";
 import { hydrateRoot } from "react-dom/client";
 
-startTransition(() => {
-	hydrateRoot(
-		document,
-		<StrictMode>
-			<RemixBrowser />
-		</StrictMode>,
-	);
+liff.init({ liffId: window.ENV.LIFF_ID as string }).then(() => {
+	startTransition(() => {
+		hydrateRoot(
+			document,
+			<StrictMode>
+				<RemixBrowser />
+			</StrictMode>,
+		);
+	});
 });
