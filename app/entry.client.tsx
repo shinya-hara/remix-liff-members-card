@@ -9,13 +9,18 @@ import { RemixBrowser } from "@remix-run/react";
 import { StrictMode, startTransition } from "react";
 import { hydrateRoot } from "react-dom/client";
 
-liff.init({ liffId: window.ENV.LIFF_ID as string }).then(() => {
-	startTransition(() => {
-		hydrateRoot(
-			document,
-			<StrictMode>
-				<RemixBrowser />
-			</StrictMode>,
-		);
+liff
+	.init({
+		liffId: window.ENV.LIFF_ID as string,
+		withLoginOnExternalBrowser: true,
+	})
+	.then(() => {
+		startTransition(() => {
+			hydrateRoot(
+				document,
+				<StrictMode>
+					<RemixBrowser />
+				</StrictMode>,
+			);
+		});
 	});
-});
