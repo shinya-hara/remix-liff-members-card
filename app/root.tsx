@@ -79,7 +79,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 						</NavbarBrand>
 						<NavbarContent justify="end">
 							<NavbarItem>
-								<Button variant="light" isIconOnly>
+								<Button
+									variant="light"
+									isIconOnly
+									onClick={() => location.reload()}
+								>
 									<i className="ri-refresh-line text-lg" />
 								</Button>
 							</NavbarItem>
