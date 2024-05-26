@@ -25,6 +25,7 @@ import {
 import { useState } from "react";
 import remixicon from "remixicon/fonts/remixicon.css?url";
 import tailwindcss from "~/tailwind.css?url";
+import { TabBar } from "./components/TabBar";
 
 export const links: LinksFunction = () => [
 	{ rel: "stylesheet", href: tailwindcss },
@@ -116,6 +117,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 						</NavbarMenu>
 					</Navbar>
 					{children}
+					<TabBar />
 					<ScrollRestoration />
 					<script
 						// biome-ignore lint/security/noDangerouslySetInnerHtml: passing env var
@@ -132,7 +134,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
 	return (
-		<div className="p-4">
+		<div
+			className="p-4"
+			style={{ paddingBottom: "calc(var(--tab-bar-height) + 1rem)" }}
+		>
 			<Outlet />
 		</div>
 	);
