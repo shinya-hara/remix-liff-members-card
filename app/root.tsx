@@ -67,7 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-stone-100">
+			<body className="bg-stone-100 min-h-dvh">
 				<NextUIProvider navigate={navigate}>
 					<Navbar isBordered>
 						<NavbarMenuToggle
@@ -127,5 +127,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	return <Outlet />;
+	return (
+		<div className="p-4">
+			<Outlet />
+		</div>
+	);
 }
