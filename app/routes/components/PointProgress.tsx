@@ -25,6 +25,7 @@ export const PointProgress = (props: Props) => {
 				classNames={{
 					svg: "h-20 w-20",
 				}}
+				aria-label="ポイント進捗"
 			/>
 		</div>
 	);
