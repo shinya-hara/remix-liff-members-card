@@ -17,5 +17,8 @@ export default async (): Promise<UserConfigExport> => {
 				cert,
 			},
 		},
+		ssr: {
+			noExternal: ["qrcode.react"],
+		},
 	};
 };
